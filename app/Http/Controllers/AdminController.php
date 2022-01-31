@@ -10,7 +10,7 @@ class AdminController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('admin');//->except(['signin','signin_post']);
+        $this->middleware('admin')->except(['signin','signin_post']);
     }
     public function signin()
         {

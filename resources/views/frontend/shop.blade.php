@@ -76,7 +76,7 @@
                             </a>
                         </div>
                         <div class="product-info">
-                            <a href="#" class="product-name"><span>{{$product->description}}</span></a>
+                            <a href="{{url('/product')}}/{{$product->id}}/{{strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $product->title)))}}" class="product-name"><span>{{$product->title}}</span></a>
                             <div class="wrap-price"><span class="product-price">${{$product->price}}</span></div>
                             <form id="cart_form" action="{{route('cart.add')}}" method="POST">
                                 @csrf
