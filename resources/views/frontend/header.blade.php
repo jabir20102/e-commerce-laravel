@@ -13,6 +13,23 @@
                     </div>
                     <div class="topbar-menu right-menu">
                         <ul>
+                            
+                                <li class="menu-item lang-menu menu-item-has-children parent">
+                                <a title="English" href="#"><span class="img label-before"><img src="{{asset('assets/images/lang-en.png')}}" alt="lang-en"></span>English<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                <ul class="submenu lang" >
+                                    <li class="menu-item" ><a title="hungary" href="#"><span class="img label-before"><img src="{{asset('assets/images/lang-hun.png')}}" alt="lang-hun"></span>Hungary</a></li>
+                                    <li class="menu-item" ><a title="german" href="#"><span class="img label-before"><img src="{{asset('assets/images/lang-ger.png')}}" alt="lang-ger" ></span>German</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item menu-item-has-children parent" >
+                                <a title="Dollar (USD)" href="#">Dollar (USD)<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                <ul class="submenu curency" >
+                                    <li class="menu-item" >
+                                        <a title="Pound (GBP)" href="#">Pound (GBP)</a>
+                                    </li>
+                                    
+                                </ul>
+                            </li>
                             @guest
                             @if (Route::has('login'))
                                 <li class="menu-item">
@@ -48,29 +65,6 @@
                                 </ul>
                             </li>
                         @endguest
-                                <li class="menu-item lang-menu menu-item-has-children parent">
-                                <a title="English" href="#"><span class="img label-before"><img src="{{asset('assets/images/lang-en.png')}}" alt="lang-en"></span>English<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                                <ul class="submenu lang" >
-                                    <li class="menu-item" ><a title="hungary" href="#"><span class="img label-before"><img src="{{asset('assets/images/lang-hun.png')}}" alt="lang-hun"></span>Hungary</a></li>
-                                    <li class="menu-item" ><a title="german" href="#"><span class="img label-before"><img src="{{asset('assets/images/lang-ger.png')}}" alt="lang-ger" ></span>German</a></li>
-                                    <li class="menu-item" ><a title="french" href="#"><span class="img label-before"><img src="{{asset('assets/images/lang-fra.png')}}" alt="lang-fre"></span>French</a></li>
-                                    <li class="menu-item" ><a title="canada" href="#"><span class="img label-before"><img src="{{asset('assets/images/lang-can.png')}}" alt="lang-can"></span>Canada</a></li>
-                                </ul>
-                            </li>
-                            <li class="menu-item menu-item-has-children parent" >
-                                <a title="Dollar (USD)" href="#">Dollar (USD)<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                                <ul class="submenu curency" >
-                                    <li class="menu-item" >
-                                        <a title="Pound (GBP)" href="#">Pound (GBP)</a>
-                                    </li>
-                                    <li class="menu-item" >
-                                        <a title="Euro (EUR)" href="#">Euro (EUR)</a>
-                                    </li>
-                                    <li class="menu-item" >
-                                        <a title="Dollar (USD)" href="#">Dollar (USD)</a>
-                                    </li>
-                                </ul>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -80,16 +74,22 @@
                 <div class="mid-section main-info-area">
 
                     <div class="wrap-logo-top left-section">
-                        <a href="index.html" class="link-to-home"><img src="{{asset('assets/images/logo-top-1.png')}}" alt="mercado"></a>
+                        <a href="{{url('/')}}" class="link-to-home"><img src="{{asset('assets/images/logo-top-1.png')}}" alt="mercado"></a>
                     </div>
 
                     <div class="wrap-search center-section">
                         <div class="wrap-search-form">
-                            <form action="#" id="form-search-top" name="form-search-top">
+                            <form action="{{url('/')}}" id="form-search-top" name="form-search-top">
                                 <input type="text" name="search" value="" placeholder="Search here...">
-                                <button form="form-search-top" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                <button form="form-search-top" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                                 <div class="wrap-list-cate">
-                                    <input type="hidden" name="product-cate" value="0" id="product-cate">
+                                    <select style="width: 120px"  name="category" class="form-select" aria-label="Default select example">
+                                        <option style="text-align:left" value="">All Categories</option>
+                                        <option style="text-align:left" value="mobiles">Mobiles</option>
+                                        <option style="text-align:left" value="laptops">Laptop</option>
+                                        <option style="text-align:left" value="lcds">LCDs</option>
+                                      </select>
+                                    {{-- <input type="hidden" name="product-cate" value="0" id="product-cate">
                                     <a href="#" class="link-control">All Category</a>
                                     <ul class="list-cate">
                                         <li class="level-0">All Category</li>
@@ -109,7 +109,7 @@
                                         <li class="level-2">Batteries & Chargens</li>
                                         <li class="level-2">Mp3 Player & Headphones</li>
                                         <li class="level-2">Table & Accessories</li>
-                                    </ul>
+                                    </ul> --}}
                                 </div>
                             </form>
                         </div>
@@ -173,22 +173,18 @@
                     <div class="container">
                         <ul class="nav primary clone-main-menu" id="mercado_main" data-menuname="Main menu" >
                             <li class="menu-item home-icon">
-                                <a href="index.html" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
+                                <a href="{{url('/')}}" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
                             </li>
                             <li class="menu-item">
                                 <a href="about-us.html" class="link-term mercado-item-title">About Us</a>
                             </li>
-                            <li class="menu-item">
-                                <a href="shop.html" class="link-term mercado-item-title">Shop</a>
-                            </li>
+                            
                             <li class="menu-item">
                                 <a href="{{route('cart')}}" class="link-term mercado-item-title">Cart</a>
                             </li>
+                            
                             <li class="menu-item">
-                                <a href="checkout.html" class="link-term mercado-item-title">Checkout</a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="contact-us.html" class="link-term mercado-item-title">Contact Us</a>
+                                <a href="{{route('contactUs')}}" class="link-term mercado-item-title">Contact Us</a>
                             </li>																	
                         </ul>
                     </div>

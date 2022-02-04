@@ -119,7 +119,7 @@
                            @foreach ($product->comments as $comment)
                            <li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1" id="li-comment-20">
                             <div id="comment-20" class="comment_container"> 
-                                <img alt="" src="{{asset('frontend-assets/images/author-avata.jpg')}}      " height="80" width="80">
+                                <img alt="" src="{{asset('assets/images/author-avata.jpg')}}" height="80" width="80">
                                 <div class="comment-text">
                                    
                                     @for ($i = 0; $i < $comment->rating; $i++)
@@ -194,6 +194,33 @@
 </div>
 </div><!--end main products area-->
 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 sitebar">
+    
+<div class="widget mercado-widget widget-product">
+    <h2 class="widget-title">Popular Products</h2>
+    <div class="widget-content">
+        <ul class="products">
+            @foreach ($popularProducts as $product)
+                
+            
+            <li class="product-item">
+                <div class="product product-widget-style">
+                    <div class="thumbnnail">
+                        <a href="{{url('/product')}}/{{$product->id}}/{{strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $product->title)))}}" class="product-name">
+                                
+                            <figure><img src="{{url('images')}}/{{$product->images[0]->path}}" alt=""></figure>
+                        </a>
+                    </div>
+                    <div class="product-info">
+                        <a href="#" class="product-name"><span>{{$product->title}}</span></a>
+                        <div class="wrap-price"><span class="product-price">${{$product->price}}</span></div>
+                    </div>
+                </div>
+            </li>
+            @endforeach
+
+        </ul>
+    </div>
+</div>
 <div class="widget widget-our-services ">
     <div class="widget-content">
         <ul class="our-services">
@@ -234,71 +261,40 @@
     </div>
 </div><!-- Categories widget-->
 
-<div class="widget mercado-widget widget-product">
-    <h2 class="widget-title">Popular Products</h2>
-    <div class="widget-content">
-        <ul class="products">
-            <li class="product-item">
-                <div class="product product-widget-style">
-                    <div class="thumbnnail">
-                        <a href="detail.html" title="Radiant-360 R6 Wireless Omnidirectional Speaker [White]">
-                            <figure><img src="assets/images/products/digital_01.jpg" alt=""></figure>
-                        </a>
-                    </div>
-                    <div class="product-info">
-                        <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional Speaker...</span></a>
-                        <div class="wrap-price"><span class="product-price">$168.00</span></div>
-                    </div>
-                </div>
-            </li>
-
-            <li class="product-item">
-                <div class="product product-widget-style">
-                    <div class="thumbnnail">
-                        <a href="detail.html" title="Radiant-360 R6 Wireless Omnidirectional Speaker [White]">
-                            <figure><img src="assets/images/products/digital_17.jpg" alt=""></figure>
-                        </a>
-                    </div>
-                    <div class="product-info">
-                        <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional Speaker...</span></a>
-                        <div class="wrap-price"><span class="product-price">$168.00</span></div>
-                    </div>
-                </div>
-            </li>
-
-            <li class="product-item">
-                <div class="product product-widget-style">
-                    <div class="thumbnnail">
-                        <a href="detail.html" title="Radiant-360 R6 Wireless Omnidirectional Speaker [White]">
-                            <figure><img src="assets/images/products/digital_18.jpg" alt=""></figure>
-                        </a>
-                    </div>
-                    <div class="product-info">
-                        <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional Speaker...</span></a>
-                        <div class="wrap-price"><span class="product-price">$168.00</span></div>
-                    </div>
-                </div>
-            </li>
-
-            <li class="product-item">
-                <div class="product product-widget-style">
-                    <div class="thumbnnail">
-                        <a href="detail.html" title="Radiant-360 R6 Wireless Omnidirectional Speaker [White]">
-                            <figure><img src="assets/images/products/digital_20.jpg" alt=""></figure>
-                        </a>
-                    </div>
-                    <div class="product-info">
-                        <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional Speaker...</span></a>
-                        <div class="wrap-price"><span class="product-price">$168.00</span></div>
-                    </div>
-                </div>
-            </li>
-
-        </ul>
-    </div>
-</div>
 
 </div><!--end sitebar-->
+	<div class="single-advance-box col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<div class="wrap-show-advance-info-box style-1 box-in-site">
+				<h3 class="title-box">Related Products</h3>
+				<div class="wrap-products">
+					<div class="products slide-carousel owl-carousel style-nav-1 equal-container" data-items="5" data-loop="false" data-nav="true" data-dots="false" data-responsive='{"0":{"items":"1"},"480":{"items":"2"},"768":{"items":"3"},"992":{"items":"3"},"1200":{"items":"5"}}' >
+                        @foreach ($relatedProducts as $product)                          
+                        
+                            <div class="product product-style-2 equal-elem ">
+                                <div class="product-thumnail">
+                                    <a href="{{url('/product')}}/{{$product->id}}/{{strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $product->title)))}}" class="product-name">
+                                    
+                                        <figure><img src="{{url('images')}}/{{$product->images[0]->path}}" alt=""></figure>
+                                    </a>
+                                    <div class="group-flash">
+                                        <span class="flash-item new-label">new</span>
+                                    </div>
+                                    <div class="wrap-btn">
+                                        <a href="{{url('/product')}}/{{$product->id}}/{{strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $product->title)))}}" class="function-link">quick view</a>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <a href="{{url('/product')}}/{{$product->id}}/{{strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $product->title)))}}" class="product-name"><span>{{$product->title}}</span></a>
+                                    <div class="wrap-price"><span class="product-price">${{$product->price}}</span></div>
+                                </div>
+                            </div>
+                        @endforeach
+
+
+					</div>
+				</div><!--End wrap-products-->
+			</div>
+		</div>
 
 </div><!--end row-->
 

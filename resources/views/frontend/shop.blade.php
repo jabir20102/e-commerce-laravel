@@ -12,8 +12,10 @@
 @section('main')
 <div class="wrap-breadcrumb">
     <ul>
-        <li class="item-link"><a href="#" class="link">home</a></li>
-        <li class="item-link"><span>Digital & Electronics</span></li>
+        <li class="item-link"><a href="{{url('/')}}" class="link">Home</a></li>
+        <li class="item-link"><span>{{ 
+            app('request')->input('category')!=""?
+            app('request')->input('category'): "All Categories" }}</span></li>
     </ul>
 </div>
 <div class="row">
@@ -28,7 +30,10 @@
 
         <div class="wrap-shop-control">
 
-            <h1 class="shop-title">Digital & Electronics</h1>
+            <h1 class="shop-title">{{ 
+                app('request')->has('search')?
+               "'". app('request')->input('search')."' result": "Top Products" }}</h1>
+            
 {{-- 
             <div class="wrap-right">
 
@@ -76,7 +81,13 @@
                             </a>
                         </div>
                         <div class="product-info">
-                            <a href="{{url('/product')}}/{{$product->id}}/{{strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $product->title)))}}" class="product-name"><span>{{$product->title}}</span></a>
+                            <a href="{{url('/product')}}/{{$product->id}}/{{strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $product->title)))}}" class="product-name">
+                                <span>
+                                    @php
+                                    $search=app('request')->input('search');
+                                   echo  str_replace($search,"<mark>".$search."</mark>",$product->title);
+                                    @endphp
+                                    </span></a>
                             <div class="wrap-price"><span class="product-price">${{$product->price}}</span></div>
                             <form id="cart_form" action="{{route('cart.add')}}" method="POST">
                                 @csrf
@@ -118,13 +129,13 @@
                         </ul>
                     </li>
                     <li class="category-item">
-                        <a href="#" class="cate-link">Laptops</a>
+                        <a href="{{url('?category=laptops')}}" class="cate-link">Laptops</a>
                     </li>
                     <li class="category-item">
-                        <a href="#" class="cate-link">Mobiles</a>
+                        <a href="{{url('?category=mobiles')}}" class="cate-link">Mobiles</a>
                     </li>
-                    <li class="category-item">
-                        <a href="#" class="cate-link">LCDs</a>
+                    <li class="category-item ">
+                        <a href="{{url('?category=lcds')}}" class="cate-link">LCDs</a>
                     </li>
                 </ul>
             </div>
@@ -148,7 +159,7 @@
                 <p>
                     <label for="amount">Price:</label>
                     <input type="text" id="amount" readonly>
-                    <button class="filter-submit">Filter</button>
+                    <button   class="filter-submit">Filter</button>
                 </p>
             </div>
         </div><!-- Price-->

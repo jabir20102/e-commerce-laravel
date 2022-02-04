@@ -15,23 +15,11 @@ use App\Models\Image;
 use Illuminate\Support\Facades\App;
 
 
-Route::get('/', function () {
-    $products=Product::with(['images','comments'])->where('offer','=','0')->paginate(6);
-    $data=compact('products');
-    return view('frontend.shop')->with($data);
-});
-Route::get('/hot-sale', function () {
-    $products=Product::with(['images','comments'])->where('offer','=','1')->get();
-    $data=compact('products');
-    return view('frontend.hotsales')->with($data);
-})->name('hotSale');
-Route::get('/product/{id}/{slug?}', function ($id) {
-    $product=Product::with('images')->where('id','=',$id)->first();
-    // $images=Image::where('product_id','=',$id)->get('path');
-    $data=compact('product');
-    return view('frontend.details')->with($data);
-})->name('product.view');
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/hot-sale', [HomeController::class, 'hotSale'])->name('hotSale');
+Route::get('/product/{id}/{slug?}', [HomeController::class, 'viewProduct'])->name('product.view');
 
+Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contactUs');
 
 Route::post('/add/comment/{product_id}', [CommentController::class, 'add'])->name('comment.add');
 

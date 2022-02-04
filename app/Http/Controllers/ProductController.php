@@ -23,7 +23,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-     $products=Product::all();
+     $products=Product::latest()->get();
      return view('admin.products',\compact('products'));   
     }
     
@@ -51,6 +51,7 @@ class ProductController extends Controller
         $product->title = $request->title;
         $product->category = $request->category;
         $product->price = $request->price;
+        $product->visits = 1;
         $product->offerPrice = $request->offerPrice;
         $product->description = $request->description;
         ($request->offer)?$product->offer='1': $product->offer='0';
