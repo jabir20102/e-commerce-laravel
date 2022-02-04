@@ -85,7 +85,7 @@
                                 <span>
                                     @php
                                     $search=app('request')->input('search');
-                                   echo  str_replace($search,"<mark>".$search."</mark>",$product->title);
+                                     echo  str_replace($search,"<mark>".$search."</mark>",$product->title);
                                     @endphp
                                     </span></a>
                             <div class="wrap-price"><span class="product-price">${{$product->price}}</span></div>
