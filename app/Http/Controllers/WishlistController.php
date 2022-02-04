@@ -16,7 +16,7 @@ class WishlistController extends Controller
                    $wishlists=Wishlist::where('user_id','=',$user->id)->get();
                      return view('frontend.wishlist',\compact('wishlists'))  ;
                    }else{
-                    return redirect()->back()->with('status', 'Please Login first');
+                    return redirect('/login')->with('status', 'Please Login first');
 
                    }
 
