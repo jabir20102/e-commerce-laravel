@@ -12,7 +12,7 @@ class CartController extends Controller
     function index(){
         $user= Auth::user();
            if($user!=null){
-           $carts=Cart::where('user_id','=',$user->id)->get();
+           $carts=Cart::where('user_id',$user->id)->get();
            $popularProducts  = Product::latest()->orderBy('visits','DESC')->limit(5)->get();
              return view('frontend.cart',\compact('carts','popularProducts'))  ;
            }else{
@@ -24,10 +24,10 @@ class CartController extends Controller
     }
     public function add(Request $request)
         {
-            // return $request->all();
-           $user= Auth::user();
+            return $request->all();
+            $user= Auth::user();
            if($user!=null){
-                $cart=Cart::where('product_id','=',$request->product_id)->where('user_id','=',$user->id)->first();
+               return  $cart=Cart::where('product_id',$request->product_id)->where('user_id',$user->id)->first();
                 if($cart!=null){
                     return redirect()->back()->with('status', 'Cart item already added');
                 }else{

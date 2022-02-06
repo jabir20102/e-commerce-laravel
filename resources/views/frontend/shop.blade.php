@@ -90,14 +90,14 @@
                                     @endphp
                                     </span></a>
                             <div class="wrap-price"><span class="product-price">${{$product->price}}</span></div>
-                            <form id="cart_form" action="{{route('cart.add')}}" method="POST">
+                            <form id="cart_form{{$product->id}}" action="{{route('cart.add')}}" method="POST">
                                 @csrf
                                 <input type="hidden" name="product_id" value="{{$product->id}}">
                                 <input type="hidden" name="product_title" value="{{$product->title}}">
                                 <input type="hidden" name="price" value="{{$product->price}}">
                                 <input type="hidden" name="product-quatity" value="1">
                                 <input type="hidden" name="product_image" value="{{$product->images[0]->path}}">
-                            <a href="javascript:{}" onclick="document.getElementById('cart_form').submit();" class="btn add-to-cart">Add To Cart</a>
+                            <a href="javascript:{}" onclick="document.getElementById('cart_form{{$product->id}}').submit();" class="btn add-to-cart">Add To Cart</a>
                             </form>
                         </div>
                     </div>
