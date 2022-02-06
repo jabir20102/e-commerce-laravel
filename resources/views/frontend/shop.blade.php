@@ -77,7 +77,8 @@
                     <div class="product product-style-3 equal-elem ">
                         <div class="product-thumnail">
                             <a href="{{url('/product')}}/{{$product->id}}/{{strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $product->title)))}}"" title="{{$product->title}}">
-                                <figure><img src="{{url('images')}}/{{$product->images[0]->path}}" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
+                                <figure><img src="{{$product->images[0]->path}}" alt="{{$product->title}}"></figure>
+                            {{-- <figure><img src="{{url('images')}}/{{$product->images[0]->path}}" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure> --}}
                             </a>
                         </div>
                         <div class="product-info">

@@ -2,6 +2,7 @@
 
 @section('main')
 
+
     <div style="padding-left: 30px" class="col-md-6 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">

@@ -12,9 +12,9 @@
         {{ session('status') }}
     </div>
 @endif
+<div class="table-responsive">
 <table class="table table-striped bg-light">
-    <tr class="bg-success ">
-        <td>ID</td>
+    <tr class="bg-success">
         <td>Title</td>
         {{-- <td style="width:200px" >Description</td> --}}
         <td>price</td>
@@ -23,9 +23,8 @@
     </tr>
     @foreach ($products as $product)
         <tr>
-            <td>{{$product->id}}</td>
-            <td>
-            <a href="{{url('/product')}}/{{$product->id}}/{{strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $product->title)))}}">
+            <td >
+            <a style="color:black" href="{{url('/product')}}/{{$product->id}}/{{strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $product->title)))}}">
                 {{$product->title}}</a></td>
             
             {{-- <td>{!!$product->description!!}</td> --}}
@@ -41,6 +40,7 @@
         </tr>
     @endforeach
 </table>
+</div>
 </div>
 </div>
 

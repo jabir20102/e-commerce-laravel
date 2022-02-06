@@ -11,42 +11,53 @@
 
     <div class="wrap-iten-in-cart">
         <h3 class="box-title">Products Name</h3>
-        <ul class="products-cart">
-            @if (count($carts)>0)
+
+        <div class="table-responsive">
+            <table class="table activitites">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-uppercase header">item</th>
+                        <th scope="col" class="text-uppercase">Title</th>
+                        <th scope="col" class="text-uppercase">Quantity</th>
+                        <th scope="col" class="text-uppercase">price each</th>
+                        <th scope="col" class="text-uppercase">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (count($carts)>0)
                 
             
-            @foreach ($carts as $cart)
-            <li class="pr-cart-item">
-                <div class="product-image">
-                    <figure><img src="{{url('images')}}/{{$cart->product_image}}" alt="No Image Found"></figure>
-                </div>
-                <div class="product-name">
-                    <a href="{{url('/product')}}/{{$cart->product_id}}/{{strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $cart->product_title)))}}" title="{{$cart->product_title}}">
-                        {{$cart->product_title}}</a>     
-                </div>
-                <div class="quantity">
-                    <div class="quantity-input">
-                        <input type="text" name="product-quatity" value="1" data-max="120" pattern="[0-9]*" >									
-                        <a class="btn btn-increase" href="#"></a>
-                        <a class="btn btn-reduce" href="#"></a>
-                    </div>
-                </div>
-                <div class="price-field sub-total"><p class="price">${{$cart->price}}</p></div>
-                <div class="delete">
-                    <a href="{{route('cart.delete',['id'=>$cart->id])}}">
-                        <i  class="fa fa-times-circle" ></i>
-                    </a>
-                </div>
-            </li>
-            @endforeach
+           
+            
+                    @foreach ($carts as $cart)
+                    <tr>
+                        <td>
+                            <figure><img width="50" src="{{$cart->product_image}}" alt="No Image Found"></figure>   
+                        {{-- <figure><img width="50" src="{{url('images')}}/{{$cart->product_image}}" alt="No Image Found"></figure>    --}}
+                        </td>
+                        <td>
+                            <div class="product-name">
+                            <a href="{{url('/product')}}/{{$cart->product_id}}/{{strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $cart->product_title)))}}" title="{{$cart->product_title}}">
+                                {{$cart->product_title}}</a>     
+                        </div>
+                        </td>
+                        <td><div class="price-field sub-total"><p class="price">{{$cart->quantity}}</p></div></td>
+                        <td class="d-flex flex-column"><div class="price-field sub-total"><p class="price">${{$cart->price}}</p></div> </td>
+                        <td class="font-weight-bold">
+                            <a class="btn btn-danger btn-sm" href="{{route('cart.delete',['id'=>$cart->id])}}">
+                                &times;
+                            </a>
+                           
+                    </tr>
+                    @endforeach
             @else
             <p>No Item found in cart</p>
 
             @endif
-            
+                </tbody>
+            </table>
+        </div>
 
-            												
-        </ul>
     </div>
 
     <div class="summary">

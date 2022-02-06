@@ -18,10 +18,12 @@
         <div class="product-gallery">
             <ul class="slides">
              @foreach ($product->images as $image)
-
-            <li data-thumb="{{url('images')}}/{{$image->path}}">
-                <img src="{{url('images')}}/{{$image->path}}" alt="product thumbnail" />
+             <li data-thumb="{{$image->path}}">
+                <img src="{{$image->path}}" alt="product thumbnail" />
             </li>
+            {{-- <li data-thumb="{{url('images')}}/{{$image->path}}">
+                <img src="{{url('images')}}/{{$image->path}}" alt="product thumbnail" />
+            </li> --}}
             @endforeach  
 
             </ul>
@@ -206,8 +208,9 @@
                 <div class="product product-widget-style">
                     <div class="thumbnnail">
                         <a href="{{url('/product')}}/{{$product->id}}/{{strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $product->title)))}}" class="product-name">
-                                
-                            <figure><img src="{{url('images')}}/{{$product->images[0]->path}}" alt=""></figure>
+                            <figure><img src="{{$product->images[0]->path}}" alt=""></figure>
+                            
+                            {{-- <figure><img src="{{url('images')}}/{{$product->images[0]->path}}" alt=""></figure> --}}
                         </a>
                     </div>
                     <div class="product-info">
@@ -274,7 +277,7 @@
                                 <div class="product-thumnail">
                                     <a href="{{url('/product')}}/{{$product->id}}/{{strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $product->title)))}}" class="product-name">
                                     
-                                        <figure><img src="{{url('images')}}/{{$product->images[0]->path}}" alt=""></figure>
+                                        <figure><img src="{{$product->images[0]->path}}" alt=""></figure>
                                     </a>
                                     <div class="group-flash">
                                         <span class="flash-item new-label">new</span>

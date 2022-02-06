@@ -42,6 +42,8 @@ Route::get('admin/product/fetchImages', [ImageController::class, 'images'])->nam
 Route::post('admin/product/addImages', [ImageController::class, 'addImages'])->name('students.addImages');
 Route::post('admin/product/images/delete', [ImageController::class, 'deleteImages'])->name('students.deleteImages');
 
+Route::post('admin/img', [ImageController::class, 'img'])->name('img');
+
 
 //  for products on admin panel
 Route::get('admin/products', [ProductController::class, 'index'])->name('admin.viewProducts');

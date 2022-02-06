@@ -14,7 +14,8 @@ class WishlistController extends Controller
                 $user= Auth::user();
                    if($user!=null){
                    $wishlists=Wishlist::where('user_id','=',$user->id)->get();
-                     return view('frontend.wishlist',\compact('wishlists'))  ;
+                   $popularProducts  = Product::latest()->orderBy('visits','DESC')->limit(5)->get();
+                     return view('frontend.wishlist',\compact('wishlists','popularProducts'))  ;
                    }else{
                     return redirect('/login')->with('status', 'Please Login first');
 

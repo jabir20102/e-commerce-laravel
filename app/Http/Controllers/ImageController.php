@@ -15,6 +15,28 @@ class ImageController extends Controller
   {
       $this->middleware('admin');//->except(['signin','signin_post']);
   }
+  function img(Request $request){
+
+    $file = $request->file('file');
+    $file_path = $file->getPathName();
+    $client = new \GuzzleHttp\Client();
+    $response = $client->request('POST', 'https://api.imgur.com/3/image', [
+        'headers' => [
+                'authorization' => 'Client-ID ' . 'b15f97ef45dd8e1',
+                'content-type' => 'application/x-www-form-urlencoded',
+            ],
+        'form_params' => [
+                'image' => base64_encode(file_get_contents($request->file('file')->path($file_path)))
+            ],
+        ]);
+  
+
+       
+    return $imageName= data_get(response()->json(json_decode(($response->getBody()->getContents())))->getData(), 'data.link');
+
+
+
+  }
     
     //    for the images
     public function viewImages($product_id){
@@ -34,12 +56,15 @@ class ImageController extends Controller
      <div style="position:relative" class="col-md-2" style="margin-bottom:16px;" align="center">
       <button style="position:absolute"  class="btn btn-danger remove_image" id="'.$image->id.'" > X </button>
       
-                <img src="'.asset('images/' . $image->path).'" class="img-thumbnail" 
+                
+                
+                <img src="' . $image->path.'" class="img-thumbnail" 
                 alt="NOT FOUND"
                 width="175" height="175" style="height:175px;" />
                 
       </div>
       ';
+      // <img src="'.url('images/' . $image->path).'" class="img-thumbnail" 
      }
      $output .= '</div>';
      echo $output;
@@ -48,11 +73,26 @@ class ImageController extends Controller
     function addImages(Request $request)
     {
         $product_id=session()->get('product_id');
-     $image = $request->file('file');
-        
-     $imageName = time() .'_'.$product_id. '.' . $image->extension();
+    //  $image = $request->file('file');        
+    //  $imageName = time() .'_'.$product_id. '.' . $image->extension();
+    //  $image->move("images/",$imageName); 
+    $file = $request->file('file');
+    $file_path = $file->getPathName();
+    $client = new \GuzzleHttp\Client();
+    $response = $client->request('POST', 'https://api.imgur.com/3/image', [
+        'headers' => [
+                'authorization' => 'Client-ID ' . 'b15f97ef45dd8e1',
+                'content-type' => 'application/x-www-form-urlencoded',
+            ],
+        'form_params' => [
+                'image' => base64_encode(file_get_contents($request->file('file')->path($file_path)))
+            ],
+        ]);
+  
 
-     $image->move(public_path('images'), $imageName);
+       
+    $imageName= data_get(response()->json(json_decode(($response->getBody()->getContents())))->getData(), 'data.link');
+
 
      $image=new Image;
      $image->path=$imageName;
