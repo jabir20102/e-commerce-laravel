@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Cart;
+use App\Models\Product;
 use Auth;
 
 class CartController extends Controller
@@ -12,7 +13,8 @@ class CartController extends Controller
         $user= Auth::user();
            if($user!=null){
            $carts=Cart::where('user_id','=',$user->id)->get();
-             return view('frontend.cart',\compact('carts'))  ;
+           $popularProducts  = Product::latest()->orderBy('visits','DESC')->limit(5)->get();
+             return view('frontend.cart',\compact('carts','popularProducts'))  ;
            }else{
             return redirect('/login')->with('status', 'Please Login first');
 

@@ -21,7 +21,7 @@
                                     <li class="menu-item" ><a title="german" href="#"><span class="img label-before"><img src="{{asset('assets/images/lang-ger.png')}}" alt="lang-ger" ></span>German</a></li>
                                 </ul>
                             </li>
-                            <li class="menu-item menu-item-has-children parent" >
+                            {{-- <li class="menu-item menu-item-has-children parent" >
                                 <a title="Dollar (USD)" href="#">Dollar (USD)<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                 <ul class="submenu curency" >
                                     <li class="menu-item" >
@@ -29,7 +29,7 @@
                                     </li>
                                     
                                 </ul>
-                            </li>
+                            </li> --}}
                             @guest
                             @if (Route::has('login'))
                                 <li class="menu-item">

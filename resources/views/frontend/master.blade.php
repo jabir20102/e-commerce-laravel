@@ -403,7 +403,7 @@
 											</li>
 											<li>
 												<i class="fa fa-envelope" aria-hidden="true"></i>
-												<p class="contact-txt">Contact@yourcompany.com</p>
+												<p class="contact-txt">mjabir42@gmail.com</p>
 											</li>											
 										</ul>
 									</div>
@@ -418,7 +418,7 @@
 								<div class="item-content">
 									<div class="wrap-hotline-footer">
 										<span class="desc">Call Us toll Free</span>
-										<b class="phone-number">(+123) 456 789 - (+123) 666 888</b>
+										<b class="phone-number">(+92) 3155395245</b>
 									</div>
 								</div>
 							</div>
@@ -448,7 +448,7 @@
 												<li class="menu-item"><a href="#" class="link-term">Brands</a></li>
 												<li class="menu-item"><a href="#" class="link-term">Gift Certificates</a></li>
 												<li class="menu-item"><a href="#" class="link-term">Affiliates</a></li>
-												<li class="menu-item"><a href="#" class="link-term">Wish list</a></li>
+												<li class="menu-item"><a href="{{route('wishlist')}}" class="link-term">Wish list</a></li>
 											</ul>
 										</div>
 									</div>
@@ -458,7 +458,7 @@
 									<div class="item-content">
 										<div class="wrap-vertical-nav">
 											<ul>
-												<li class="menu-item"><a href="#" class="link-term">Contact Us</a></li>
+												<li class="menu-item"><a href="{{route('contactUs')}}" class="link-term">Contact Us</a></li>
 												<li class="menu-item"><a href="#" class="link-term">Returns</a></li>
 												<li class="menu-item"><a href="#" class="link-term">Site Map</a></li>
 												<li class="menu-item"><a href="#" class="link-term">Specials</a></li>
@@ -479,7 +479,7 @@
 								<h3 class="item-header">We Using Safe Payments:</h3>
 								<div class="item-content">
 									<div class="wrap-list-item wrap-gallery">
-										<img src="assets/images/payment.png" style="max-width: 260px;">
+										<img src="{{asset('assets/images/payment.png')}}" style="max-width: 260px;">
 									</div>
 								</div>
 							</div>
@@ -508,8 +508,8 @@
 								<div class="item-content">
 									<div class="wrap-list-item apps-list">
 										<ul>
-											<li><a href="#" class="link-to-item" title="our application on apple store"><figure><img src="assets/images/brands/apple-store.png" alt="apple store" width="128" height="36"></figure></a></li>
-											<li><a href="#" class="link-to-item" title="our application on google play store"><figure><img src="assets/images/brands/google-play-store.png" alt="google play store" width="128" height="36"></figure></a></li>
+											<li><a href="#" class="link-to-item" title="our application on apple store"><figure><img src="{{asset('assets/images/brands/apple-store.png')}}" alt="apple store" width="128" height="36"></figure></a></li>
+											<li><a href="#" class="link-to-item" title="our application on google play store"><figure><img src="{{asset('assets/images/brands/google-play-store.png')}}" alt="google play store" width="128" height="36"></figure></a></li>
 										</ul>
 									</div>
 								</div>

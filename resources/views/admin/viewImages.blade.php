@@ -40,7 +40,7 @@
           </div>
           <div class="lightbox">
             <div class="multi-carousel">
-              <div id="loading" style="display: none" class="spinner-border" role="status">
+              <div id="loading" style="display: none" class="spinner" role="status">
                 <span class="sr-only">Loading...</span>
               </div>
 

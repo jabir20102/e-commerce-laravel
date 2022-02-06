@@ -14,6 +14,7 @@
 
         <div class="table-responsive">
             <table class="table activitites">
+                @if (count($wishlists)>0)  
                 <thead>
                     <tr>
                         <th scope="col" class="text-uppercase header">item</th>
@@ -22,7 +23,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @if (count($wishlists)>0)           
+                             
             
            
             
@@ -45,11 +46,12 @@
                            
                     </tr>
                     @endforeach
+                </tbody>
             @else
             <p>No Item found in wishlist</p>
 
             @endif
-                </tbody>
+                
             </table>
         </div>
 
@@ -76,8 +78,8 @@
                         </div>
                     </div>
                     <div class="product-info">
-                        <a href="{{url('/product')}}/{{$cart->product_id}}/{{strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $cart->product_title)))}}" title="{{$cart->product_title}}">
-                            {{$cart->product_title}}</a>
+                        <a href="{{url('/product')}}/{{$product->product_id}}/{{strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $product->product_title)))}}" title="{{$product->product_title}}">
+                            {{$product->product_title}}</a>
                         <div class="wrap-price"><span class="product-price">${{$product->price}}</span></div>
                     </div>
                 </div>
