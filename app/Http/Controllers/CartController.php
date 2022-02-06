@@ -24,10 +24,10 @@ class CartController extends Controller
     }
     public function add(Request $request)
         {
-            return $request->all();
+             $request->all();
             $user= Auth::user();
            if($user!=null){
-               return  $cart=Cart::where('product_id',$request->product_id)->where('user_id',$user->id)->first();
+                 $cart=Cart::where('product_id',$request->product_id)->where('user_id',$user->id)->first();
                 if($cart!=null){
                     return redirect()->back()->with('status', 'Cart item already added');
                 }else{
