@@ -21,10 +21,16 @@
               <input name="title" type="text" class="form-control" id="exampleInputUsername1" placeholder="Title">
             </div>
             <div class="form-group">
+              <label for="shortDescription">Brief Description</label>
+              <textarea name="shortDescription" id="" cols="30" rows="10" class="form-control">
+                
+              </textarea>
+            </div>
+            <div class="form-group">
               <label for="category">Category</label>
               <select name="category" id="category" class="form-select" aria-label="Default select example">
                 <option value="mobiles">Mobiles</option>
-                <option value="Laptops">Laptops</option>
+                <option value="laptops">Laptops</option>
                 <option value="lcds">LCDs</option>
               </select>  
             </div>

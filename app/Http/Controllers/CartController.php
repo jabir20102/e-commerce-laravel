@@ -16,7 +16,7 @@ class CartController extends Controller
            $popularProducts  = Product::latest()->orderBy('visits','DESC')->limit(5)->get();
              return view('frontend.cart',\compact('carts','popularProducts'))  ;
            }else{
-            return redirect('/login')->with('status', 'Please Login first');
+            return redirect('/login')->with('warning', 'Please Login first');
 
            }
 
@@ -29,7 +29,7 @@ class CartController extends Controller
            if($user!=null){
                  $cart=Cart::where('product_id',$request->product_id)->where('user_id',$user->id)->first();
                 if($cart!=null){
-                    return redirect()->back()->with('status', 'Cart item already added');
+                    return redirect()->back()->with('warning', 'This item is  already exist in cart');
                 }else{
                 $cart = new Cart;
                 $cart->user_id       = $user->id;
@@ -39,10 +39,10 @@ class CartController extends Controller
                 $cart->product_title = $request->product_title;
                 $cart->product_image = $request->product_image;
                 $cart->save();
-                return redirect()->back()->with('status', 'Cart added successfully');
+                return redirect()->back()->with('success', 'Cart added successfully');
                 }
            }else{
-            return redirect()->back()->with('status', 'Please Login first');
+            return redirect()->back()->with('warning', 'Please Login first');
 
            }
             
@@ -51,6 +51,6 @@ class CartController extends Controller
     public function delete($id)
     {
         Cart::destroy($id);
-        return redirect()->back()->with('status', 'Cart Item deleted successfully');
+        return redirect()->back()->with('danger', 'Item deleted successfully');
     }
 }

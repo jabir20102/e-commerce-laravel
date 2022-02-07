@@ -88,7 +88,11 @@
                                     $search=app('request')->input('search');
                                      echo  str_replace($search,"<mark>".$search."</mark>",$product->title);
                                     @endphp
+                                    
                                     </span></a>
+                                    <div class="short-desc">
+                                        {{$product->shortDescription}}
+                                    </div>
                             <div class="wrap-price"><span class="product-price">${{$product->price}}</span></div>
                             <form id="cart_form{{$product->id}}" action="{{route('cart.add')}}" method="POST">
                                 @csrf

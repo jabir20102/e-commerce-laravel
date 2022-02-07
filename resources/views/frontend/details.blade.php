@@ -57,11 +57,7 @@
                 <input type="hidden" name="product_image" value="{{$product->images[0]->path}}">
         <h2 class="product-name">{{$product->title}}</h2>
         <div class="short-desc">
-            <ul>
-                <li>7,9-inch LED-backlit, 130Gb</li>
-                <li>Dual-core A7 with quad-core graphics</li>
-                <li>FaceTime HD Camera 7.0 MP Photos</li>
-            </ul>
+            {{$product->shortDescription}}
         </div>
         <div class="wrap-social">
             <a class="link-socail" href="#"><img src="assets/images/social-list.png" alt=""></a>
@@ -106,10 +102,10 @@
         </div>
         <div class="tab-contents">
             <div class="tab-content-item active" id="description">
-                {!! $product->description !!}
+                {!! $product->shortDescription !!}
             </div>
             <div class="tab-content-item " id="add_infomation">
-                {{$product->image}}
+                {!! $product->description !!}
             </div>
             <div class="tab-content-item " id="review">
                 

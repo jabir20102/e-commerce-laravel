@@ -30,6 +30,7 @@
                                     
                                 </ul>
                             </li> --}}
+                            
                             @guest
                             @if (Route::has('login'))
                                 <li class="menu-item">
@@ -43,12 +44,11 @@
                                 </li>
                             @endif
                             
-                        @else
+                            @else
                             
                             <li class="menu-item lang-menu menu-item-has-children parent">
-                                <a id="navbarDropdown" class="nav-link label-before" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
+                                <a id="navbarDropdown" title="Name" href="#">{{ Auth::user()->name }}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                
                                 <ul class="submenu lang" >
                                     <li class="menu-item" >
                                         <a class="dropdown-item" href="{{ route('logout') }}"
@@ -61,6 +61,7 @@
                                         @csrf
                                     </form>
                                     </li>
+                                    
                                     
                                 </ul>
                             </li>
@@ -191,11 +192,35 @@
                 </div>
             </div>
         </div>
-        @if(session('status'))
+        @if(session('success'))
         
         <div class="alert alert-success alert-dismissible mt=10">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Success!</strong> {{ session('status') }}
+            <strong>Success! </strong> {{ session('success') }}
+          </div>
+
+        @endif
+        @if(session('warning'))
+        
+        <div class="alert alert-warning alert-dismissible mt=10">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Warning! </strong> {{ session('warning') }}
+          </div>
+
+        @endif
+        @if(session('danger'))
+        
+        <div class="alert alert-danger alert-dismissible mt=10">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Danger!  </strong> {{ session('danger') }}
+          </div>
+
+        @endif
+        @if(session('status'))
+        
+        <div class="alert alert-danger alert-dismissible mt=10">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Danger!  </strong> {{ session('status') }}
           </div>
 
         @endif

@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->float('offerPrice');
             $table->boolean('offer')->default(0);
             $table->text('description')->nullable();
+            $table->string('shortDescription')->nullable();
             $table->timestamps();
         });
     }

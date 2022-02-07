@@ -33,6 +33,9 @@
                             </div>
                             <div class="product-info">
                                 <a href="#" class="product-name"><span>{{$product->title}}</span></a>
+                                <div class="short-desc">
+                                    {{$product->shortDescription}}
+                                </div>
                                 <div class="wrap-price"><span class="product-price">${{$product->price}}</span></div>
                                 <del><p class="product-price">${{$product->offerPrice}}</p></del>
                             </div>

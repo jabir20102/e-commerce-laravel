@@ -54,6 +54,7 @@ class ProductController extends Controller
         $product->visits = 1;
         $product->offerPrice = $request->offerPrice;
         $product->description = $request->description;
+        $product->shortDescription = $request->shortDescription;
         ($request->offer)?$product->offer='1': $product->offer='0';
         $product->save();
         return redirect('/admin/products')->with('status', 'Product added successfully');
@@ -97,6 +98,9 @@ class ProductController extends Controller
         $product = Product::where('id','=',$id)->first();
         $product->title = $request->title;
         $product->price = $request->price;
+        $product->offerPrice = $request->offerPrice;
+        ($request->offer)?$product->offer='1': $product->offer='0';
+        $product->shortDescription = $request->shortDescription;
         $product->description = $request->description;
         $product->save();
         return redirect('/admin/products')->with('status', 'Product updated successfully');  
