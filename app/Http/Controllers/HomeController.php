@@ -45,23 +45,17 @@ class HomeController extends Controller
         return view('frontend.details')->with($data);
     }
     public function contactUs(){
-        $email="pakcricket131@gmail.com";
-        // Mail::to($email)->send(new Subscribe($email));
-        // return new JsonResponse(
-        //     [
-        //         'success' => true, 
-        //         'message' => "Thank you for subscribing to our email, please check your inbox"
-        //     ], 
-        //     200
-        // );
+       
         $details = [
-            'title' => 'Mail from ItSolutionStuff.com',
-            'body' => 'This is for testing email using smtp'
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'message' => $request->message
         ];
        
         \Mail::to('softwareengg.courses4u@gmail.com')->send(new \App\Mail\Test($details));
        
-        // return view('frontend.contactUS');
+        return view('frontend.contactUS');
         
     }
 

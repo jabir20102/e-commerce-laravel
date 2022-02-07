@@ -1,5 +1,7 @@
 @extends('frontend.master')
+
 @section('main')
+
 <!--Latest Products-->
 <div class="wrap-show-advance-info-box style-1">
     <h3 class="title-box">Hot Sales Products</h3>

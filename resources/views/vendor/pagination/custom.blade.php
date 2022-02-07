@@ -2,7 +2,7 @@
 @if ($paginator->hasPages())
 <ul class="page-numbers">
     @if ($paginator->onFirstPage())
-        <li class="disabled"><span class="page-number-item">Previous</span></li>
+        {{-- <li class="disabled"><span class="page-number-item">Previous</span></li> --}}
     @else
     <li><a href="{{ $paginator->previousPageUrl() }}" rel="prev"><span class="page-number-item" >Previous</span></a></li>
     
@@ -37,7 +37,7 @@
         <li><a href="{{ $paginator->nextPageUrl() }}" rel="next"><span class="page-number-item" >Next</span></a></li>
         
     @else
-        <li class="disabled"><span class="page-number-item">Next </span></li>
+        {{-- <li class="disabled"><span class="page-number-item">Next </span></li> --}}
     @endif
 </ul>
 @endif 

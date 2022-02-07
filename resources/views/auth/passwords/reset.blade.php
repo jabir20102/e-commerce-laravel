@@ -89,7 +89,7 @@
                                 <input type="hidden" name="token" value="{{ $token }}">
         
                                 <fieldset class="wrap-title">
-                                    <h3 class="form-title">Log in to your account</h3>										
+                                    <h3 class="form-title">Log in with  new password</h3>										
                                 </fieldset>
                                 <fieldset class="wrap-input">
                                     <label for="frm-login-uname">Email Address:</label>
@@ -98,23 +98,23 @@
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong class="text-danger">{{ $message }}</strong>
                                     </span>
                                 @enderror
                                    
                                 </fieldset>
                                 <fieldset class="wrap-input">
-                                    <label for="frm-login-pass">Password:</label>
+                                    <label for="frm-login-pass">New Password:</label>
                                     <input id="frm-login-pass" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong class="text-danger">{{ $message }}</strong>
                                     </span>
                                 @enderror
                                 </fieldset>
                                 <fieldset class="wrap-input">
-                                    <label for="frm-reset-pass">Password:</label>
+                                    <label for="frm-reset-pass">New Password:</label>
                                     <input id="frm-reset-pass" type="password" class="form-control @error('password') is-invalid @enderror" name="password_confirmation" required autocomplete="new-password">
 
                                 </fieldset>

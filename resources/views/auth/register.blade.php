@@ -45,7 +45,7 @@
 
                                 @error('email')
                                     <span class="invalid-feedback bg-danger" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong class="text-danger">{{ $message }}</strong>
                                     </span>
                                 @enderror
                                    
@@ -56,7 +56,7 @@
 
                                     @error('password')
                                         <span class="invalid-feedback bg-danger" role="alert">
-                                            <strong>{{ $message }}</strong>
+                                            <strong class="text-danger">{{ $message }}</strong>
                                         </span>
                                     @enderror
                                 </fieldset>
