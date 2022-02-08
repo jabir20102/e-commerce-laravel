@@ -17,7 +17,7 @@ class WishlistController extends Controller
                    $popularProducts  = Product::latest()->orderBy('visits','DESC')->limit(5)->get();
                      return view('frontend.wishlist',\compact('wishlists','popularProducts'))  ;
                    }else{
-                    return redirect('/login')->with('status', 'Please Login first');
+                    return redirect('/login')->with('warning', 'Please Login first');
 
                    }
 
@@ -38,10 +38,10 @@ class WishlistController extends Controller
                         $wishlist->product_title = $request->product_title;
                         $wishlist->product_image = $request->product_image;
                         $wishlist->save();
-                        return redirect()->back()->with('status', 'Wishlist added successfully');
+                        return redirect()->back()->with('success', 'Wishlist added successfully');
                         }
                    }else{
-                    return redirect()->back()->with('status', 'Please Login first');
+                    return redirect()->back()->with('warning', 'Please Login first');
 
                    }
                     
@@ -50,7 +50,7 @@ class WishlistController extends Controller
             public function delete($id)
             {
                 Wishlist::destroy($id);
-                return redirect()->back()->with('status', 'Wishlist deleted successfully');
+                return redirect()->back()->with('danger', 'Wishlist deleted successfully');
             }
            
 }

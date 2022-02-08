@@ -61,19 +61,17 @@ class HomeController extends Controller
         return view('frontend.details')->with($data);
     }
     
-    public function contactUs(){
+    public function contactUs(Request $request){
        
-        $details = [
+         $details = [
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
             'message' => $request->message
         ];
        
-        \Mail::to('softwareengg.courses4u@gmail.com')->send(new \App\Mail\Test($details));
-       
-        return view('frontend.contactUS');
-        
+        \Mail::to('softwareengg.courses4u@gmail.com')->send(new \App\Mail\Test($details));   
+        return redirect()->back()->with('success', 'Thank you!  Your Message sent successfully');
     }
 
 

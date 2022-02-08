@@ -1,5 +1,6 @@
 @extends('frontend.master')
 
+@section('title', $product->title)
 @section('main')
 
 <div class="wrap-breadcrumb">

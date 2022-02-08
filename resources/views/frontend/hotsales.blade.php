@@ -1,5 +1,6 @@
 @extends('frontend.master')
 
+@section('title', 'HOT SALE ITEMS')
 @section('main')
 
 <!--Latest Products-->

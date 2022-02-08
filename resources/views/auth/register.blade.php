@@ -1,6 +1,8 @@
 
 @extends('frontend.master')
 
+
+@section('title', 'REGISTER')
 @section('main')
 
 <!--main area-->

@@ -41,14 +41,15 @@
         <div class="widget-content">
             <form action="{{url('/')}}">
             <section class="range-slider">
-                
-                <span class="rangeValues"></span>
-                <input  name="minPrice" value="5" min="0" max="1000" step="20" type="range">
-                <input name="maxPrice" value="410" min="0" max="1000" step="20" type="range">
+                   {{-- there is some styles in master file for the slider --}}
+                <span id="rangeValues"></span>
+                <input id="slider1"  name="minPrice" value="5" min="0" max="1000" step="20" type="range" onchange="updateSlider()" />
+                <input id="slider2"  name="maxPrice" value="410" min="0" max="1000" step="20" type="range" onchange="updateSlider()"/>
                
             </section>
             <button style="float: right">Filter</button>
         </form>
+        
             {{-- <div id="slider-range"></div>
             <p>
                 <label for="amount">Price:</label>

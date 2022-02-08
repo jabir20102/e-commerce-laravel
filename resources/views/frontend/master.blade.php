@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Home</title>	
+	<title>@yield('title')</title>	
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/images/favicon.ico')}}">
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900,900italic&amp;subset=latin,latin-ext" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Open%20Sans:300,400,400italic,600,600italic,700,700italic&amp;subset=latin,latin-ext" rel="stylesheet">
@@ -19,10 +19,10 @@
 
   {{-- for the slider --}}
   <style type="text/css">
-  
+
 	section.range-slider {
 		position: relative;
-		width: 200px;
+		/* width: 200px; */
 		height: 35px;
 		text-align: center;
 		
@@ -34,7 +34,7 @@
 		overflow: hidden;
 		left: 0;
 		top: 15px;
-		width: 200px;
+		/* width: 200px; */
 		outline: none;
 		height: 18px;
 		margin: 0;
@@ -58,11 +58,6 @@
 	}
 </style>
 
-	{{-- for the alert flash messages--}}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-
 </head>
 <body class="home-page home-01 ">
 	
@@ -79,39 +74,7 @@
 	<main id="main">
 		<div class="container">
 
-			{{-- <!--MAIN SLIDE-->
-			<div class="wrap-main-slide">
-				<div class="slide-carousel owl-carousel style-nav-1" data-items="1" data-loop="1" data-nav="true" data-dots="false">
-					<div class="item-slide">
-						<img src="assets/images/main-slider-1-1.jpg" alt="" class="img-slide">
-						<div class="slide-info slide-1">
-							<h2 class="f-title">Kid Smart <b>Watches</b></h2>
-							<span class="subtitle">Compra todos tus productos Smart por internet.</span>
-							<p class="sale-info">Only price: <span class="price">$59.99</span></p>
-							<a href="#" class="btn-link">Shop Now</a>
-						</div>
-					</div>
-					<div class="item-slide">
-						<img src="assets/images/main-slider-1-2.jpg" alt="" class="img-slide">
-						<div class="slide-info slide-2">
-							<h2 class="f-title">Extra 25% Off</h2>
-							<span class="f-subtitle">On online payments</span>
-							<p class="discount-code">Use Code: #FA6868</p>
-							<h4 class="s-title">Get Free</h4>
-							<p class="s-subtitle">TRansparent Bra Straps</p>
-						</div>
-					</div>
-					<div class="item-slide">
-						<img src="assets/images/main-slider-1-3.jpg" alt="" class="img-slide">
-						<div class="slide-info slide-3">
-							<h2 class="f-title">Great Range of <b>Exclusive Furniture Packages</b></h2>
-							<span class="f-subtitle">Exclusive Furniture Packages to Suit every need.</span>
-							<p class="sale-info">Stating at: <b class="price">$225.00</b></p>
-							<a href="#" class="btn-link">Shop Now</a>
-						</div>
-					</div>
-				</div>
-			</div> --}}
+			
 
 			{{-- <!--BANNER-->
 			<div class="wrap-banner style-twin-default">
@@ -634,6 +597,18 @@
 		</div>
 	</footer>
 	
+	<script>
+		function updateSlider() {
+			var sliderDiv = document.getElementById("rangeValues");
+			
+			var slider1 = document.getElementById("slider1").value;
+			var slider2 = document.getElementById("slider2").value;
+			sliderDiv.innerHTML = slider1+" - "+slider2;
+		}
+	</script>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 	<script src="{{asset('frontend-assets/js/jquery-1.12.4.minb8ff.js?ver=1.12.4')}}"></script>
 	<script src="{{asset('frontend-assets/js/jquery-ui-1.12.4.minb8ff.js?ver=1.12.4')}}"></script>
@@ -644,38 +619,8 @@
 	<script src="{{asset('frontend-assets/js/jquery.countdown.min.js')}}"></script>
 	<script src="{{asset('frontend-assets/js/jquery.sticky.js')}}"></script>
 	<script src="{{asset('frontend-assets/js/functions.js')}}"></script>
-	<script src="{{asset('assets/js/filterCategory.js')}}"></script>
-	<script>
-		   
-        function getVals(){
-			
-  // Get slider values
-	var parent = this.parentNode;
-	var slides = parent.getElementsByTagName("input");
-    var slide1 = parseFloat( slides[0].value );
-    var slide2 = parseFloat( slides[1].value );
-  // Neither slider will clip the other, so make sure we determine which is larger
-  if( slide1 > slide2 ){ var tmp = slide2; slide2 = slide1; slide1 = tmp; }
-  
-  var displayElement = parent.getElementsByClassName("rangeValues")[0];
-      displayElement.innerHTML = slide1 + " - " + slide2;
-}
-
-window.onload = function(){
 	
-  // Initialize Sliders
-  var sliderSections = document.getElementsByClassName("range-slider");
-      for( var x = 0; x < sliderSections.length; x++ ){
-        var sliders = sliderSections[x].getElementsByTagName("input");
-        for( var y = 0; y < sliders.length; y++ ){
-          if( sliders[y].type ==="range" ){
-            sliders[y].oninput = getVals;
-            // Manually trigger event first time to display values
-            sliders[y].oninput();
-          }
-        }
-      }
-}
-    </script>
+	
+	
 </body>
 </html>

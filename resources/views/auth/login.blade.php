@@ -1,6 +1,7 @@
-
 @extends('frontend.master')
 
+
+@section('title', 'LOGIN')
 @section('main')
 
 <!--main area-->

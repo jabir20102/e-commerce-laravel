@@ -1,5 +1,7 @@
 @extends('frontend.master')
 
+
+@section('title', 'MY WISHLIST')
 @section('main')
 <div class="wrap-breadcrumb">
     <ul>

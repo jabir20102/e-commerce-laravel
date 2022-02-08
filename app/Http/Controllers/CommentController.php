@@ -17,6 +17,6 @@ class CommentController extends Controller
         $comment->product_id=$product_id;
         $comment->save();
 
-        return redirect()->back()->with(['status' => 'Comment Added successfully']);
+        return redirect()->back()->with(['success' => 'Comment Added successfully']);
     }
 }

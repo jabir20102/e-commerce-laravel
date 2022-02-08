@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ItsolutionStuff.com</title>
+    <title>jabirkhan2022</title>
 </head>
 <body>
-    <h1>{{ $details['name'] }}</h1>
-    
-    <h2>{{ $details['phone'] }}</h2>
-    <h2>{{ $details['email'] }}</h2>
+
     <p>{{ $details['message'] }}</p>
-   
-    <p>Thank you</p>
+    by
+    <h5>{{ $details['name'] }}</h5>
+    
+    <h5>{{ $details['phone'] }}</h5>
+    <h5>{{ $details['email'] }}</h5>
+
 </body>
 </html> 

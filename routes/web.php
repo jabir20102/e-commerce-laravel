@@ -19,7 +19,9 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/hot-sale', [HomeController::class, 'hotSale'])->name('hotSale');
 Route::get('/product/{id}/{slug?}', [HomeController::class, 'viewProduct'])->name('product.view');
 
-Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contactUs');
+Route::get('/contact-us', function(){return view('frontend.contactUS');} );
+Route::post('/contactUs', [HomeController::class, 'contactUs'])->name('contactUs');
+
 
 Route::post('/add/comment/{product_id}', [CommentController::class, 'add'])->name('comment.add');
 
