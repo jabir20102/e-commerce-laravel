@@ -14,13 +14,13 @@
 						<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
 							<div class="contact-box contact-form">
 								<h2 class="box-title">Leave a Message</h2>
-								<form action="{{route('contactUs')}}" method="post" name="frm-contact">
+								<form action="{{route('contactForm')}}" method="post" name="frm-contact">
 									@csrf
 									<label for="name">Name<span>*</span></label>
-									<input type="text" value="" id="name" name="name" >
+									<input type="text" value="" id="name" name="name" required>
 
 									<label for="email">Email<span>*</span></label>
-									<input type="text" value="" id="email" name="email" >
+									<input type="text" value="" id="email" name="email" required />
 
 									<label for="phone">Number Phone</label>
 									<input type="text" value="" id="phone" name="phone" >
