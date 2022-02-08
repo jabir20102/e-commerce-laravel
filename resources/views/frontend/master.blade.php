@@ -16,6 +16,48 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend-assets/css/chosen.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend-assets/css/style.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend-assets/css/color-01.css')}}">
+
+  {{-- for the slider --}}
+  <style type="text/css">
+  
+	section.range-slider {
+		position: relative;
+		width: 200px;
+		height: 35px;
+		text-align: center;
+		
+	}
+
+	section.range-slider input {
+		pointer-events: none;
+		position: absolute;
+		overflow: hidden;
+		left: 0;
+		top: 15px;
+		width: 200px;
+		outline: none;
+		height: 18px;
+		margin: 0;
+		padding: 0;
+	}
+
+	section.range-slider input::-webkit-slider-thumb {
+		pointer-events: all;
+		position: relative;
+		z-index: 1;
+		outline: 0;
+	}
+
+	section.range-slider input::-moz-range-thumb {
+		pointer-events: all;
+		position: relative;
+		z-index: 10;
+		-moz-appearance: none;
+		width: 9px;
+		
+	}
+</style>
+
 	{{-- for the alert flash messages--}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -592,6 +634,7 @@
 		</div>
 	</footer>
 	
+
 	<script src="{{asset('frontend-assets/js/jquery-1.12.4.minb8ff.js?ver=1.12.4')}}"></script>
 	<script src="{{asset('frontend-assets/js/jquery-ui-1.12.4.minb8ff.js?ver=1.12.4')}}"></script>
 	<script src="{{asset('frontend-assets/js/bootstrap.min.js')}}"></script>
@@ -602,5 +645,37 @@
 	<script src="{{asset('frontend-assets/js/jquery.sticky.js')}}"></script>
 	<script src="{{asset('frontend-assets/js/functions.js')}}"></script>
 	<script src="{{asset('assets/js/filterCategory.js')}}"></script>
+	<script>
+		   
+        function getVals(){
+			
+  // Get slider values
+	var parent = this.parentNode;
+	var slides = parent.getElementsByTagName("input");
+    var slide1 = parseFloat( slides[0].value );
+    var slide2 = parseFloat( slides[1].value );
+  // Neither slider will clip the other, so make sure we determine which is larger
+  if( slide1 > slide2 ){ var tmp = slide2; slide2 = slide1; slide1 = tmp; }
+  
+  var displayElement = parent.getElementsByClassName("rangeValues")[0];
+      displayElement.innerHTML = slide1 + " - " + slide2;
+}
+
+window.onload = function(){
+	
+  // Initialize Sliders
+  var sliderSections = document.getElementsByClassName("range-slider");
+      for( var x = 0; x < sliderSections.length; x++ ){
+        var sliders = sliderSections[x].getElementsByTagName("input");
+        for( var y = 0; y < sliders.length; y++ ){
+          if( sliders[y].type ==="range" ){
+            sliders[y].oninput = getVals;
+            // Manually trigger event first time to display values
+            sliders[y].oninput();
+          }
+        }
+      }
+}
+    </script>
 </body>
 </html>

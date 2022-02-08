@@ -21,11 +21,27 @@ class HomeController extends Controller
     {
         $category=$request->category;
         $search=strtolower($request->search);
-        $products=Product::where('category','like','%'.$category.'%')
-        ->where('offer','0')
-        ->where('title', 'like', '%' . $search . '%')
-        ->paginate(6);
-        
+        $minPrice=$request->minPrice;
+        $maxPrice=$request->maxPrice;
+
+        $query = Product::orderBy('created_at','desc');
+        if($request->search){
+            // This will only execute if you received any keyword
+            $query = $query->where('title','like','%'.$search.'%');
+        }
+        if($request->category){
+            // This will only execute if you received any keyword
+            $query = $query->where('category','like','%'.$category.'%');
+        }
+        if($request->minPrice && $request->maxPrice){
+            // This will only execute if you received any price
+            // Make you you validated the min and max price properly
+            $query = $query->where('price','>=',$request->minPrice);
+            $query = $query->where('price','<=',$request->maxPrice);
+        }
+        $products = $query->where("offer",0);
+        $products = $query->paginate(4);
+
          $data=compact('products');
          return view('frontend.shop')->with($data);
     }
@@ -44,6 +60,7 @@ class HomeController extends Controller
         $data=compact('product','popularProducts','relatedProducts');
         return view('frontend.details')->with($data);
     }
+    
     public function contactUs(){
        
         $details = [
