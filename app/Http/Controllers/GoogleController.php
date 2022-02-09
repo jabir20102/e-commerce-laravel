@@ -8,6 +8,7 @@ use Validator;
 use Socialite;
 use Exception;
 use Auth;
+
 class GoogleController extends Controller
 {
     public function googleRedirect()
