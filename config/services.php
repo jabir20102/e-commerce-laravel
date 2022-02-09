@@ -19,6 +19,11 @@ return [
         'client_secret' => '5e6e895c15e6b3729696c52270370bb2',
         'redirect' => env('APP_URL'). '/auth/facebook/callback',
     ],
+    'google' => [
+        'client_id' => '551989845804-gcvbr6od16mq5ka3a4262ob6ne7dd99n.apps.googleusercontent.com',
+        'client_secret' => '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',
+        'redirect' =>  env('APP_URL').'/auth/google/callback',
+    ],
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),

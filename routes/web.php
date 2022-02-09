@@ -10,6 +10,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\SocialController;
+use App\Http\Controllers\GoogleController;
 use App\Models\Customer;
 use App\Models\Product;
 use App\Models\Image;
@@ -17,6 +18,10 @@ use Illuminate\Support\Facades\App;
 
 Route::get('auth/facebook', [SocialController::class, 'facebookRedirect']);
 Route::get('auth/facebook/callback', [SocialController::class, 'loginWithFacebook']);
+Route::get('auth/google', [GoogleController::class, 'googleRedirect']);
+Route::get('auth/google/callback', [GoogleController::class, 'loginWithGoogle']);
+
+
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/hot-sale', [HomeController::class, 'hotSale'])->name('hotSale');
