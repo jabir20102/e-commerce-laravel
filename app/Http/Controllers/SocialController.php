@@ -20,14 +20,15 @@ class SocialController extends Controller
     
             $user = Socialite::driver('facebook')->user();
             $isUser = User::where('fb_id', $user->id)->first();
-     
+    //    echo "<img src=".$user->avatar." alt='no found'/>";
+    
             if($isUser){
                 Auth::login($isUser);
                 return redirect('/');
             }else{
                 $createUser = User::create([
                     'name' => $user->name,
-                    'email' => $user->email,
+                    'email' => $user->email?$user->email:"",
                     'fb_id' => $user->id,
                     'password' => encrypt('admin@123')
                 ]);
@@ -37,7 +38,7 @@ class SocialController extends Controller
             }
     
         } catch (Exception $exception) {
-            return $exception;
+            return $exception->getMessage();
             // dd($exception->getMessage());
         }
     }
