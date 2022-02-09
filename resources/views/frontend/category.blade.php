@@ -50,12 +50,12 @@
             <button style="float: right">Filter</button>
         </form>
         
-            {{-- <div id="slider-range"></div>
+            <div id="slider-range"></div>
             <p>
                 <label for="amount">Price:</label>
                 <input type="text" id="amount" readonly>
                 <button   class="filter-submit">Filter</button>
-            </p> --}}
+            </p>
         </div>
     </div><!-- Price-->
     
