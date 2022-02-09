@@ -9,11 +9,14 @@ use App\Http\Controllers\ImageController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\SocialController;
 use App\Models\Customer;
 use App\Models\Product;
 use App\Models\Image;
 use Illuminate\Support\Facades\App;
 
+Route::get('auth/facebook', [SocialController::class, 'facebookRedirect']);
+Route::get('auth/facebook/callback', [SocialController::class, 'loginWithFacebook']);
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/hot-sale', [HomeController::class, 'hotSale'])->name('hotSale');
