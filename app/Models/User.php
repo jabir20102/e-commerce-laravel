@@ -7,14 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
     use HasApiTokens;
     use HasFactory;
-    use HasProfilePhoto;
     use Notifiable;
-    use TwoFactorAuthenticatable;
 
 
      protected $fillable = [
@@ -22,6 +21,7 @@ class User extends Authenticatable
         'email',
         'password',
         'fb_id',
+        'google_id'
     ];
     /**
      * The attributes that should be hidden for arrays.

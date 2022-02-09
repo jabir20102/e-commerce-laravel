@@ -17,29 +17,35 @@ class GoogleController extends Controller
     }
     public function loginWithGoogle()
     {
+
         try {
-    
-          return  $user = Socialite::driver('google')->user();
-            // $isUser = User::where('fb_id', $user->id)->first();
-     
-            // if($isUser){
-            //     Auth::login($isUser);
-            //     return redirect('/');
-            // }else{
-            //     $createUser = User::create([
-            //         'name' => $user->name,
-            //         'email' => $user->email,
-            //         'fb_id' => $user->id,
-            //         'password' => encrypt('admin@123')
-            //     ]);
-    
-            //     Auth::login($createUser);
-            //     return redirect('/');
-            // }
-    
-        } catch (Exception $exception) {
-            return $exception;
-            // dd($exception->getMessage());
+      
+            $user = Socialite::driver('google')->user();
+       
+            $finduser = User::where('google_id', $user->id)->first();
+       
+            if($finduser){
+       
+                Auth::login($finduser);
+      
+                return redirect()->intended('/');
+       
+            }else{
+                $newUser = User::create([
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'google_id'=> $user->id,
+                    'password' => encrypt('123456dummy')
+                ]);
+      
+                Auth::login($newUser);
+      
+                return redirect()->intended('/');
+            }
+      
+        } catch (Exception $e) {
+            dd($e->getMessage());
         }
+
     }
 }
