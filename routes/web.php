@@ -11,6 +11,7 @@ use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\ChatController;
 use App\Models\Customer;
 use App\Models\Product;
 use App\Models\Image;
@@ -36,6 +37,12 @@ Route::post('/add/comment/{product_id}', [CommentController::class, 'add'])->nam
 
 // Route::get('/setLocale/{locale?}', [LocaleController::class,'setLocale']); //locale? is optional parameter
 // Route::get('/getLocale', [LocaleController::class,'getLocale']); //locale? is optional parameter
+
+//   for the chat box
+Route::get('/chat', [ChatController::class, 'index']);
+Route::get('/open-chat', [ChatController::class, 'openChat']);
+Route::post('/messages', [ChatController::class, 'message']);
+Route::post('/sendMessage', [ChatController::class, 'sendMessage']);
 
 Auth::routes();
 

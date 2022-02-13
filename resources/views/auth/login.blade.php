@@ -26,28 +26,9 @@
                                 <fieldset class="wrap-title">
                                     <h3 class="form-title">Log in to your account</h3>										
                                 </fieldset>
-                                <fieldset class="wrap-input">
-                                    <label for="frm-login-uname">Email Address:</label>
-                                    <input id="frm-login-uname" type="email" class="form-control @error('email') is-invalid @enderror" 
-                                name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong class="text-danger">{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                                   
-                                </fieldset>
-                                <fieldset class="wrap-input">
-                                    <label for="frm-login-pass">Password:</label>
-                                    <input id="frm-login-pass" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                                </fieldset>
+                                <x-input type="email" name="email" label="Enter Your Email address:"/>
+                                <x-input type="password" name="password" label="Enter Your password:"/>
+                                
                                 
                                 <fieldset class="wrap-input">
                                     <label class="remember-field">
@@ -59,7 +40,7 @@
                                     </a>
                                 @endif
                                     </fieldset>
-                                <input type="submit" class="btn btn-submit" value="Login" name="submit">
+                                <input style="width: 100%" type="submit" class="btn btn-submit" value="Login" name="submit">
                                 {{-- Login with Facebook --}}
                                 <div class="flex items-center justify-end mt-4">
                                     <a class="btn" href="{{ url('auth/facebook') }}"

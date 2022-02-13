@@ -1,28 +1,29 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
-                    Dashboard goes here
-                </div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                    <a class="btn btn-link" href="{{ route('home.create') }}">
-                        create
-                    </a>
-                </div>
-            </div>
+    
+    <div class="row">
+        <div class="col-md-5">
+            @if($users->count() > 0)
+                <h3>You logged in as {{Auth::user()->name}}</h3>
+                <ul id="users">
+                    @foreach($users as $user)
+                        <li style="margin: 5px">
+                            {{-- <span class="label label-info">{{ $user->name }}</span>  --}}
+                            {{-- <a href="javascript:void(0);" class="chat-toggle" data-id="{{ $user->id }}" 
+                                data-user="{{ $user->name }}">Open chat</a> --}}
+                                <button id="{{ $user->id }}" type="button" class="btn btn-info btn-sm chat_btn" data-toggle="modal" 
+                                    data-target="#myModal">Message with {{ $user->name }}</button>
+                            </li>
+                    @endforeach
+                </ul>
+            @else
+                <p>No users found! try to add a new user using another browser by going to <a href="{{ url('register') }}">Register page</a></p>
+            @endif
         </div>
     </div>
-</div>
-@endsection
+<a href="{{url('/sendMessage')}}" >sendMessa</a>
+    @include('chat-box')
+
+    @endsection
+

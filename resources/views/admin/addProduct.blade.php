@@ -17,7 +17,7 @@
           enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-              <label for="exampleInputUsername1">Title</label>
+              <label for="exampleInputUsername1">Enter product title</label>
               <input name="title" type="text" class="form-control" id="exampleInputUsername1" placeholder="Title">
             </div>
             <div class="form-group">

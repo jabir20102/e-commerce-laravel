@@ -37,14 +37,6 @@
             @endif
                         
                
-                  @foreach ($products as $product)
-                  <div>
-
-                    <img src="{{url('uploads')}}/{{$product->image}}" alt="">
-                    <a href="/admin/productDelete/{{$product->id}}">delete</a>
-                  </div>
-                      
-                  @endforeach
 
 
         </div>

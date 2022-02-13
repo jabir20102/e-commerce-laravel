@@ -19,6 +19,8 @@
               <label for="exampleInputUsername1">Title</label>
               <input name="title" value="{{$product->title}}" type="text" class="form-control" id="exampleInputUsername1" placeholder="Title">
             </div>
+            
+                                
             <div class="form-group">
               <label for="shortDescription">Brief Description</label>
               <textarea name="shortDescription" id="" cols="30" rows="10" class="form-control">

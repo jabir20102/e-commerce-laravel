@@ -28,46 +28,11 @@
                                 <fieldset class="wrap-title">
                                     <h3 class="form-title">Registration</h3>										
                                 </fieldset>
-                                <fieldset class="wrap-input">
-                                    <label for="name">Full Name:</label>
-                                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-        
-                                        @error('name')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                </fieldset>
-
+                                <x-input type="text" name="name" label="Enter Your name:"/>
+                                <x-input type="email" name="email" label="Enter Your email:"/>
+                                <x-input type="password" name="password" label="Enter Your password:"/>
+                                <x-input type="password" name="password_confirmation" label="Confirm password:"/>
                                 
-                                <fieldset class="wrap-input">
-                                    <label for="frm-login-uname">Email Address:</label>
-                                    <input id="frm-login-uname" type="email" class="form-control @error('email') is-invalid @enderror" 
-                                name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback bg-danger" role="alert">
-                                        <strong class="text-danger">{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                                   
-                                </fieldset>
-                                <fieldset class="wrap-input">
-                                    <label for="password">Password:</label>
-                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                    @error('password')
-                                        <span class="invalid-feedback bg-danger" role="alert">
-                                            <strong class="text-danger">{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </fieldset>
-                                
-                                <fieldset class="wrap-input">
-                                    <label for="password-confirm">Confirm Password:</label>
-                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                                
-                                </fieldset>
                                 <input type="submit" class="btn btn-submit" value="Register" name="submit">
                             </form>
                         </div>												
