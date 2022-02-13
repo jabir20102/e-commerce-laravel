@@ -41,6 +41,7 @@ Route::post('/add/comment/{product_id}', [CommentController::class, 'add'])->nam
 //   for the chat box
 Route::get('/chat', [ChatController::class, 'index']);
 Route::get('/open-chat', [ChatController::class, 'openChat']);
+Route::get('/clearChat', [ChatController::class, 'clearChat']);
 Route::post('/messages', [ChatController::class, 'message']);
 Route::post('/sendMessage', [ChatController::class, 'sendMessage']);
 

@@ -9,7 +9,8 @@
                 <ul id="users">
                     @foreach($users as $user)
                         <li style="margin: 5px">
-                                <button id="{{ $user->id }}" type="button" class="btn btn-info btn-sm chat_btn" data-toggle="modal" 
+                                <button id="{{ $user->id }}" type="button" class="btn btn-info btn-sm chat_btn" 
+                                    data-toggle="modal" 
                                     data-target="#myModal">Message with {{ $user->name }}</button>
                             </li>
                     @endforeach
