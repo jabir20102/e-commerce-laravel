@@ -9,9 +9,6 @@
                 <ul id="users">
                     @foreach($users as $user)
                         <li style="margin: 5px">
-                            {{-- <span class="label label-info">{{ $user->name }}</span>  --}}
-                            {{-- <a href="javascript:void(0);" class="chat-toggle" data-id="{{ $user->id }}" 
-                                data-user="{{ $user->name }}">Open chat</a> --}}
                                 <button id="{{ $user->id }}" type="button" class="btn btn-info btn-sm chat_btn" data-toggle="modal" 
                                     data-target="#myModal">Message with {{ $user->name }}</button>
                             </li>
@@ -22,7 +19,6 @@
             @endif
         </div>
     </div>
-<a href="{{url('/sendMessage')}}" >sendMessa</a>
     @include('chat-box')
 
     @endsection
