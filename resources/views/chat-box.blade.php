@@ -43,10 +43,9 @@
   // Enable pusher logging - don't include this in production
   Pusher.logToConsole = true;
   
-  var pusher = new Pusher('f51742ce07138c39a1de', {
-    cluster: 'ap1'
-  });
-  
+  var pusher = new Pusher('9771f18170e415740bfe', {
+      cluster: 'us3'
+    });
   // pusher.unsubscribe(channelName);
   var channel = pusher.subscribe("chat");
   
