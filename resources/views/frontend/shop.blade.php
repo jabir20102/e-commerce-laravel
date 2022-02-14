@@ -143,7 +143,7 @@
         
 
         <div class="wrap-pagination-info">
-            {{ $products->links('vendor.pagination.custom') }}
+            {{ $products->appends(request()->input())->links('vendor.pagination.custom') }}
             <p class="result-count">Showing {{ $products->firstItem() }}-{{ $products->lastItem() }} of {{ $products->total() }} results</p>
         </div>
     </div><!--end main products area-->
