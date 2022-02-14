@@ -40,7 +40,7 @@ class HomeController extends Controller
             $query = $query->where('price','<=',$request->maxPrice);
         }
         $products = $query->where("offer",0);
-        $products = $query->paginate(4);
+        $products = $query->paginate(2);
 
          $data=compact('products');
          return view('frontend.shop')->with($data);
