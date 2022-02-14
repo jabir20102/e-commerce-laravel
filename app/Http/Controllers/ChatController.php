@@ -19,7 +19,7 @@ class ChatController extends Controller
     {
         $users = User::where('id', '!=', Auth::user()->id)->get();
 
-        return view('home', compact('users'));
+        return view('frontend.chat', compact('users'));
     }
     
     public function openChat(Request $request) //   load messages from db 

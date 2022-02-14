@@ -17,135 +17,17 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend-assets/css/style.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend-assets/css/color-01.css')}}">
 
-  {{-- for the slider --}}
-<style type="text/css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
   
-		input[type=range] {
-		height: 27px;
-		-webkit-appearance: none;
-		margin: 10px 0;
-		width: 100%;
-		}
-		input[type=range]:focus {
-		outline: none;
-		}
-		input[type=range]::-webkit-slider-runnable-track {
-		width: 100%;
-		height: 10px;
-		cursor: pointer;
-		animate: 0.2s;
-		box-shadow: 0px 0px 0px #000000;
-		background: #FF0000;
-		border-radius: 0px;
-		border: 0px solid #000000;
-		}
-		input[type=range]::-webkit-slider-thumb {
-		box-shadow: 0px 0px 0px #000000;
-		border: 0px solid #000000;
-		height: 21px;
-		width: 9px;
-		border-radius: 20px;
-		background: #000000;
-		cursor: pointer;
-		-webkit-appearance: none;
-		margin-top: -5.5px;
-		}
-		input[type=range]:focus::-webkit-slider-runnable-track {
-		background: #FF0000;
-		}
-		input[type=range]::-moz-range-track {
-		width: 100%;
-		height: 10px;
-		cursor: pointer;
-		animate: 0.2s;
-		box-shadow: 0px 0px 0px #000000;
-		background: #FF0000;
-		border-radius: 0px;
-		border: 0px solid #000000;
-		}
-		input[type=range]::-moz-range-thumb {
-		box-shadow: 0px 0px 0px #000000;
-		border: 0px solid #000000;
-		height: 21px;
-		width: 9px;
-		border-radius: 20px;
-		background: #000000;
-		cursor: pointer;
-		}
-		input[type=range]::-ms-track {
-		width: 100%;
-		height: 10px;
-		cursor: pointer;
-		animate: 0.2s;
-		background: transparent;
-		border-color: transparent;
-		color: transparent;
-		}
-		input[type=range]::-ms-fill-lower {
-		background: #FF0000;
-		border: 0px solid #000000;
-		border-radius: 0px;
-		box-shadow: 0px 0px 0px #000000;
-		}
-		input[type=range]::-ms-fill-upper {
-		background: #FF0000;
-		border: 0px solid #000000;
-		border-radius: 0px;
-		box-shadow: 0px 0px 0px #000000;
-		}
-		input[type=range]::-ms-thumb {
-		margin-top: 1px;
-		box-shadow: 0px 0px 0px #000000;
-		border: 0px solid #000000;
-		height: 21px;
-		width: 9px;
-		border-radius: 20px;
-		background: #000000;
-		cursor: pointer;
-		}
-		input[type=range]:focus::-ms-fill-lower {
-		background: #FF0000;
-		}
-		input[type=range]:focus::-ms-fill-upper {
-		background: #FF0000;
-		}
-			section.range-slider {
-				position: relative;
-				/* width: 200px; */
-				height: 35px;
-				text-align: center;
-				
-			}
+  <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+ 
+    <link rel="stylesheet" href="{{ asset('css/chat.css') }}" />
 
-			section.range-slider input {
-				pointer-events: none;
-				position: absolute;
-				overflow: hidden;
-				left: 0;
-				top: 15px;
-				/* width: 200px; */
-				outline: none;
-				height: 18px;
-				margin: 0;
-				padding: 0;
-			}
+  {{-- for the slider --}}
+  <link rel="stylesheet" href="{{ asset('css/priceSlider.css') }}" />
 
-			section.range-slider input::-webkit-slider-thumb {
-				pointer-events: all;
-				position: relative;
-				z-index: 1;
-				outline: 0;
-			}
-
-			section.range-slider input::-moz-range-thumb {
-				pointer-events: all;
-				position: relative;
-				z-index: 10;
-				-moz-appearance: none;
-				width: 9px;
-				
-			}
-</style>
+  @yield('style')
 
 </head>
 <body class="home-page home-01 ">
@@ -709,6 +591,7 @@
 	<script src="{{asset('frontend-assets/js/jquery.sticky.js')}}"></script>
 	<script src="{{asset('frontend-assets/js/functions.js')}}"></script>
 	
+	@yield('script')
 	
 	
 </body>
