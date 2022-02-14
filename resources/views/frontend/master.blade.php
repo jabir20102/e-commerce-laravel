@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="{{ asset('css/chat.css') }}" />
 
   {{-- for the slider --}}
-  <link rel="stylesheet" href="{{ asset('css/priceslider.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/slider.css') }}" />
 
   @yield('style')
 
