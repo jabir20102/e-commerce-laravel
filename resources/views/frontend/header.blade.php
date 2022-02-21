@@ -183,7 +183,11 @@
                             <li class="menu-item">
                                 <a href="{{route('cart')}}" class="link-term mercado-item-title">Cart</a>
                             </li>
-                            
+                             
+                            <li class="menu-item">
+                                <a href="{{url('calculator')}}" class="link-term mercado-item-title">calculator</a>
+                            </li>
+
                             <li class="menu-item">
                                 <a href="{{route('contactUs')}}" class="link-term mercado-item-title">Contact Us</a>
                             </li>																	

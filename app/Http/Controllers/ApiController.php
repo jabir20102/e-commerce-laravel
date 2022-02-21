@@ -21,6 +21,8 @@ class ApiController extends Controller
         // echo "<pre>";
         return  $products=Product::where('category','like','%'.$category.'%')
         ->where('offer','0')->where('title', 'like', '%' . $search . '%')
+        ->with('images')
+        ->with('comments')
         ->paginate(6);
         
         $data=compact('products');

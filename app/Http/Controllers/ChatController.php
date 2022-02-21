@@ -13,7 +13,12 @@ class ChatController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('calculator');
+    }
+    public function calculator()
+    {
+
+        return view('frontend.calculator');
     }
     public function index()
     {

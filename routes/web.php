@@ -38,6 +38,10 @@ Route::post('/add/comment/{product_id}', [CommentController::class, 'add'])->nam
 // Route::get('/setLocale/{locale?}', [LocaleController::class,'setLocale']); //locale? is optional parameter
 // Route::get('/getLocale', [LocaleController::class,'getLocale']); //locale? is optional parameter
 
+//   for the calcuulator
+
+Route::get('/calculator', [ChatController::class, 'calculator']);
+
 //   for the chat box
 Route::get('/chat', [ChatController::class, 'index']);
 Route::get('/open-chat', [ChatController::class, 'openChat']);

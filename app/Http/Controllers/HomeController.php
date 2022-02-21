@@ -8,7 +8,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use DB;
-
+use Auth;
 
 class HomeController extends Controller
 {
