@@ -13,22 +13,23 @@ class AuthController extends Controller
 {
     public function register(Request $request)
     {
+        
         $validator = Validator::make($request->all(),[
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            // 'password' => 'required|string|min:8'
-            'password' => [
-                'required',
-                'confirmed',
-                'string',
-                new isValidPassword(),
-            ],
+            'password' => 'required|string|min:8'
+            // 'password' => [
+            //     'required',
+            //     // 'confirmed',
+            //     // 'string',
+            //     // new isValidPassword(),
+            // ],
         ]);
 
         if($validator->fails()){
             // return response()->json($validator->errors()); 
             return response()
-                ->json([ $validator->errors()], 400);      
+                ->json(['errors'=> $validator->errors()], 400);      
         }
 
         $user = User::create([
@@ -56,7 +57,7 @@ class AuthController extends Controller
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()
-            ->json(['message' => 'Hi '.$user->name.', welcome to home','access_token' => $token, 'token_type' => 'Bearer', ]);
+            ->json(['user' => $user,'access_token' => $token, 'token_type' => 'Bearer', ]);
     }
 
     // method for user logout and delete token

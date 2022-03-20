@@ -66,6 +66,10 @@
                                 </ul>
                             </li>
                         @endguest
+                        <li class="menu-item">
+                            <a class="nav-link" href="{{ route('admin.signin') }}">{{ __('Admin') }}</a>
+                        </li>
+
                         </ul>
                     </div>
                 </div>

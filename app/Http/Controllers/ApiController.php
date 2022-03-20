@@ -28,4 +28,14 @@ class ApiController extends Controller
         $data=compact('products');
         //  return view('frontend.shop')->with($data);
     }
+    public function product($id)
+    {
+        return  $product=Product::where('id',$id)
+        ->with('images')
+        ->with('comments')
+        ->first();
+        
+        $data=compact('product');
+        //  return view('frontend.shop')->with($data);
+    }
 }
