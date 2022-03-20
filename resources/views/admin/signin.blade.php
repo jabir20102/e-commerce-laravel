@@ -13,6 +13,7 @@
                 <li class="item-link"><a href="{{url('/')}}" class="link">Home</a></li>
                 <li class="item-link"><span>login</span></li>
             </ul>
+            <p>jabir@admin.com  password: khan1234</p>
         </div>
         <div class="row">
             <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12 col-md-offset-3">
