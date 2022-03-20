@@ -31,7 +31,7 @@ class CartController extends Controller
               $cart->product_image = $request->product_image;
               $cart->save();
               return response()
-            ->json(['item' => $cart], 200);
+            ->json( $cart, 200);
               }
          }else{
              return response()
