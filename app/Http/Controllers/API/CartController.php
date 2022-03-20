@@ -10,7 +10,9 @@ use App\Models\Product;
 class CartController extends Controller
 {
     function index($user){
-        return $carts=Cart::where('user_id',$user)->get();
+         $carts=Cart::where('user_id',$user)->get();
+         return response()
+            ->json([ $carts], 200);
   }
   public function add(Request $request)
       {
@@ -18,7 +20,7 @@ class CartController extends Controller
                $cart=Cart::where('product_id',$request->product_id)->where('user_id',$request->user_id)->first();
               if($cart!=null){
                 return response()
-                ->json(['message' => 'Item already exists in cart'], 200);
+                ->json(['message' => 'Item already exists in cart'], 201);
               }else{
               $cart = new Cart;
               $cart->user_id       = $request->user_id;
@@ -28,7 +30,8 @@ class CartController extends Controller
               $cart->product_title = $request->product_title;
               $cart->product_image = $request->product_image;
               $cart->save();
-              return 'Cart added successfully';
+              return response()
+            ->json(['item' => $cart], 200);
               }
          }else{
              return response()

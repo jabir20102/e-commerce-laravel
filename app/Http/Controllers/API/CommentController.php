@@ -19,6 +19,6 @@ class CommentController extends Controller
             $comment->save();
     
             return response()
-            ->json(['message' => 'thanks for review'], 200);
+            ->json(['message' => 'thank you  for review'], 200);
 }
 }
