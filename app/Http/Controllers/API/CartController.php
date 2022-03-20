@@ -12,7 +12,7 @@ class CartController extends Controller
     function index($user){
          $carts=Cart::where('user_id',$user)->get();
          return response()
-            ->json([ $carts], 200);
+            ->json($carts, 200);
   }
   public function add(Request $request)
       {
